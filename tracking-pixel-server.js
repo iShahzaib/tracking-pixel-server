@@ -17,7 +17,7 @@ app.get('/pixel.png', async (req, res) => {
     const response = await axios.get(`https://ipinfo.io/${ip}/json?token=99aec6bd3e9f52`);
     location = response.data;
   } catch (error) {
-    console.error('Failed to fetch location:', error.message);
+    console.error('Failed to fetch location:', error);
   }
 
   console.log('Email Opened: ', {
