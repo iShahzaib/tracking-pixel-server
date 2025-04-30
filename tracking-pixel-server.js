@@ -7,11 +7,9 @@ const PORT = process.env.PORT || 3000;
 app.set('trust proxy', true);
 
 app.get('/pixel.png', async (req, res) => {
-  const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  const ip = req.headers['x-forwarded-for']?.split(',')[0] || req.ip;
   const userAgent = req.headers['user-agent'];
   const timestamp = new Date().toISOString();
-
-  console.log(req)
 
   let location = {};
 
