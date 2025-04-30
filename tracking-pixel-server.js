@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const app = express();
@@ -14,7 +15,7 @@ app.get('/pixel.png', async (req, res) => {
   let location = {};
 
   try {
-    const response = await axios.get(`https://ipinfo.io/${ip}/json?token=99aec6bd3e9f52`);
+    const response = await axios.get(`https://ipinfo.io/${ip}/json?token=${process.env.IPINFO_TOKEN}`);
     location = response.data;
   } catch (error) {
     console.error('Failed to fetch location:', error);
