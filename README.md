@@ -45,7 +45,25 @@ A simple Node.js + Express server to serve a 1x1 transparent tracking pixel that
 Embed the tracking pixel in an email:
 
 ```html
-<img src="https://your-domain.com/pixel.png" width="1" height="1" style="display:none;" alt="."/>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test Email</title>
+    </head>
+    <body>
+        <p>Hi there,</p>
+
+        <p>This is a sample email to test the tracking pixel.</p>
+
+        <p>Best regards,<br>
+        Shahzaib</p>
+
+        <!-- Tracking Pixel (1x1 transparent image) -->
+        <img src="https://tracking-pixel-server-qhdb.onrender.com/pixel.png" width="1" height="1" style="display:none;" alt="." />
+
+    </body>
+</html>
+
 ```
 
 ## License
